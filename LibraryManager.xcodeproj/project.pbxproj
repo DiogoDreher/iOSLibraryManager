@@ -3,19 +3,92 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A3D608826022A5B00FF1DEB /* StaffManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D608726022A5B00FF1DEB /* StaffManager.swift */; };
+		7A3D608B26022C1000FF1DEB /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D608A26022C1000FF1DEB /* BookData.swift */; };
+		7A3D60942602434B00FF1DEB /* StaffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60932602434B00FF1DEB /* StaffModel.swift */; };
+		7A3D60982602437C00FF1DEB /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60972602437C00FF1DEB /* BookManager.swift */; };
+		7A3D609B2602438E00FF1DEB /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D609A2602438E00FF1DEB /* CustomerModel.swift */; };
+		7A3D609E2602439700FF1DEB /* CustomerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D609D2602439700FF1DEB /* CustomerData.swift */; };
+		7A3D60A1260243A500FF1DEB /* CustomerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60A0260243A500FF1DEB /* CustomerManager.swift */; };
+		7A3D60A4260243B100FF1DEB /* LoanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60A3260243B100FF1DEB /* LoanModel.swift */; };
+		7A3D60A7260243C200FF1DEB /* LoanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60A6260243C200FF1DEB /* LoanData.swift */; };
+		7A3D60AA260243CD00FF1DEB /* LoanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60A9260243CD00FF1DEB /* LoanManager.swift */; };
+		7A3D60AE2602440000FF1DEB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60AD2602440000FF1DEB /* LoginModel.swift */; };
+		7A3D60B22602441800FF1DEB /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60B12602441800FF1DEB /* LoginData.swift */; };
+		7A3D60B52602442500FF1DEB /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60B42602442500FF1DEB /* LoginManager.swift */; };
+		7A3D60B82602443500FF1DEB /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60B72602443500FF1DEB /* RegisterModel.swift */; };
+		7A3D60BB2602443F00FF1DEB /* RegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60BA2602443F00FF1DEB /* RegisterData.swift */; };
+		7A3D60BE2602444900FF1DEB /* RegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60BD2602444900FF1DEB /* RegisterManager.swift */; };
+		7A46CEA52603739A0091F5D1 /* StaffListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CEA42603739A0091F5D1 /* StaffListTableViewController.swift */; };
+		7A46CEA8260373A70091F5D1 /* CustomersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CEA7260373A70091F5D1 /* CustomersListTableViewController.swift */; };
+		7A46CEAB260373B10091F5D1 /* LoansListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CEAA260373B10091F5D1 /* LoansListTableViewController.swift */; };
+		7A46CEB32603A1210091F5D1 /* StaffCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CEB12603A1210091F5D1 /* StaffCell.swift */; };
+		7A46CEB42603A1210091F5D1 /* StaffCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A46CEB22603A1210091F5D1 /* StaffCell.xib */; };
+		7A46CEB82603A5AE0091F5D1 /* CustomerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CEB62603A5AE0091F5D1 /* CustomerCell.swift */; };
+		7A46CEB92603A5AE0091F5D1 /* CustomerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A46CEB72603A5AE0091F5D1 /* CustomerCell.xib */; };
+		7A46CEBD2603A6960091F5D1 /* LoanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A46CEBB2603A6960091F5D1 /* LoanCell.swift */; };
+		7A46CEBE2603A6960091F5D1 /* LoanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A46CEBC2603A6960091F5D1 /* LoanCell.xib */; };
+		7A47297025FE1A560014D06F /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7A47296F25FE1A560014D06F /* SwipeCellKit */; };
+		7A47297325FE24A80014D06F /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A47297225FE24A80014D06F /* BookDetailsViewController.swift */; };
+		7A638A6A26010AB10019888E /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A638A6926010AB10019888E /* LibraryManager.swift */; };
+		7A638A6D26011FAE0019888E /* StaffData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A638A6C26011FAE0019888E /* StaffData.swift */; };
+		7A6CE4FD2604F12C0033559D /* LoanDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6CE4FC2604F12C0033559D /* LoanDetailsViewController.swift */; };
+		7A6CE5002604F1C60033559D /* PersonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6CE4FF2604F1C60033559D /* PersonDetailsViewController.swift */; };
+		7A6CE50426068C9A0033559D /* SaveBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6CE50326068C9A0033559D /* SaveBookViewController.swift */; };
+		7A6CE5082608AA100033559D /* SavePersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6CE5072608AA100033559D /* SavePersonViewController.swift */; };
+		7A6CE50B260A15FB0033559D /* SaveLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6CE50A260A15FB0033559D /* SaveLoanViewController.swift */; };
 		7A7AF8B225FBCEE200F50929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AF8B125FBCEE200F50929 /* AppDelegate.swift */; };
 		7A7AF8B425FBCEE200F50929 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AF8B325FBCEE200F50929 /* SceneDelegate.swift */; };
 		7A7AF8B625FBCEE200F50929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AF8B525FBCEE200F50929 /* ViewController.swift */; };
 		7A7AF8B925FBCEE200F50929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AF8B725FBCEE200F50929 /* Main.storyboard */; };
 		7A7AF8BB25FBCEE300F50929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AF8BA25FBCEE300F50929 /* Assets.xcassets */; };
 		7A7AF8BE25FBCEE300F50929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AF8BC25FBCEE300F50929 /* LaunchScreen.storyboard */; };
+		7A7AF8C925FBF36800F50929 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AF8C825FBF36800F50929 /* MainViewController.swift */; };
+		7A8C5D1925FCEC9000D1FCC7 /* BooksListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8C5D1825FCEC9000D1FCC7 /* BooksListTableViewController.swift */; };
+		7A8C5D1C25FCF31700D1FCC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8C5D1B25FCF31700D1FCC7 /* Constants.swift */; };
+		7A8C5D2025FCF50800D1FCC7 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8C5D1F25FCF50800D1FCC7 /* BookModel.swift */; };
+		7A8C5D2A25FCFAB800D1FCC7 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8C5D2825FCFAB800D1FCC7 /* BookCell.swift */; };
+		7A8C5D2B25FCFAB800D1FCC7 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8C5D2925FCFAB800D1FCC7 /* BookCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A3D608726022A5B00FF1DEB /* StaffManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffManager.swift; sourceTree = "<group>"; };
+		7A3D608A26022C1000FF1DEB /* BookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
+		7A3D60932602434B00FF1DEB /* StaffModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffModel.swift; sourceTree = "<group>"; };
+		7A3D60972602437C00FF1DEB /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
+		7A3D609A2602438E00FF1DEB /* CustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
+		7A3D609D2602439700FF1DEB /* CustomerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerData.swift; sourceTree = "<group>"; };
+		7A3D60A0260243A500FF1DEB /* CustomerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerManager.swift; sourceTree = "<group>"; };
+		7A3D60A3260243B100FF1DEB /* LoanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanModel.swift; sourceTree = "<group>"; };
+		7A3D60A6260243C200FF1DEB /* LoanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanData.swift; sourceTree = "<group>"; };
+		7A3D60A9260243CD00FF1DEB /* LoanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanManager.swift; sourceTree = "<group>"; };
+		7A3D60AD2602440000FF1DEB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		7A3D60B12602441800FF1DEB /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		7A3D60B42602442500FF1DEB /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		7A3D60B72602443500FF1DEB /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		7A3D60BA2602443F00FF1DEB /* RegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterData.swift; sourceTree = "<group>"; };
+		7A3D60BD2602444900FF1DEB /* RegisterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterManager.swift; sourceTree = "<group>"; };
+		7A46CEA42603739A0091F5D1 /* StaffListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffListTableViewController.swift; sourceTree = "<group>"; };
+		7A46CEA7260373A70091F5D1 /* CustomersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersListTableViewController.swift; sourceTree = "<group>"; };
+		7A46CEAA260373B10091F5D1 /* LoansListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansListTableViewController.swift; sourceTree = "<group>"; };
+		7A46CEB12603A1210091F5D1 /* StaffCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffCell.swift; sourceTree = "<group>"; };
+		7A46CEB22603A1210091F5D1 /* StaffCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaffCell.xib; sourceTree = "<group>"; };
+		7A46CEB62603A5AE0091F5D1 /* CustomerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCell.swift; sourceTree = "<group>"; };
+		7A46CEB72603A5AE0091F5D1 /* CustomerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerCell.xib; sourceTree = "<group>"; };
+		7A46CEBB2603A6960091F5D1 /* LoanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCell.swift; sourceTree = "<group>"; };
+		7A46CEBC2603A6960091F5D1 /* LoanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoanCell.xib; sourceTree = "<group>"; };
+		7A47297225FE24A80014D06F /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
+		7A638A6926010AB10019888E /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; };
+		7A638A6C26011FAE0019888E /* StaffData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffData.swift; sourceTree = "<group>"; };
+		7A6CE4FC2604F12C0033559D /* LoanDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDetailsViewController.swift; sourceTree = "<group>"; };
+		7A6CE4FF2604F1C60033559D /* PersonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewController.swift; sourceTree = "<group>"; };
+		7A6CE50326068C9A0033559D /* SaveBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBookViewController.swift; sourceTree = "<group>"; };
+		7A6CE5072608AA100033559D /* SavePersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePersonViewController.swift; sourceTree = "<group>"; };
+		7A6CE50A260A15FB0033559D /* SaveLoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoanViewController.swift; sourceTree = "<group>"; };
 		7A7AF8AE25FBCEE200F50929 /* LibraryManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibraryManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7AF8B125FBCEE200F50929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A7AF8B325FBCEE200F50929 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +97,12 @@
 		7A7AF8BA25FBCEE300F50929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A7AF8BD25FBCEE300F50929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A7AF8BF25FBCEE300F50929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A7AF8C825FBF36800F50929 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7A8C5D1825FCEC9000D1FCC7 /* BooksListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListTableViewController.swift; sourceTree = "<group>"; };
+		7A8C5D1B25FCF31700D1FCC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7A8C5D1F25FCF50800D1FCC7 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		7A8C5D2825FCFAB800D1FCC7 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		7A8C5D2925FCFAB800D1FCC7 /* BookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +110,129 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A47297025FE1A560014D06F /* SwipeCellKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A3D608D260242E400FF1DEB /* Staff */ = {
+			isa = PBXGroup;
+			children = (
+				7A638A6C26011FAE0019888E /* StaffData.swift */,
+				7A3D608726022A5B00FF1DEB /* StaffManager.swift */,
+				7A3D60932602434B00FF1DEB /* StaffModel.swift */,
+			);
+			path = Staff;
+			sourceTree = "<group>";
+		};
+		7A3D608F260242F500FF1DEB /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				7A8C5D1F25FCF50800D1FCC7 /* BookModel.swift */,
+				7A3D608A26022C1000FF1DEB /* BookData.swift */,
+				7A3D60972602437C00FF1DEB /* BookManager.swift */,
+			);
+			path = Books;
+			sourceTree = "<group>";
+		};
+		7A3D60912602430700FF1DEB /* Customers */ = {
+			isa = PBXGroup;
+			children = (
+				7A3D609A2602438E00FF1DEB /* CustomerModel.swift */,
+				7A3D609D2602439700FF1DEB /* CustomerData.swift */,
+				7A3D60A0260243A500FF1DEB /* CustomerManager.swift */,
+			);
+			path = Customers;
+			sourceTree = "<group>";
+		};
+		7A3D60922602431200FF1DEB /* Loans */ = {
+			isa = PBXGroup;
+			children = (
+				7A3D60A3260243B100FF1DEB /* LoanModel.swift */,
+				7A3D60A6260243C200FF1DEB /* LoanData.swift */,
+				7A3D60A9260243CD00FF1DEB /* LoanManager.swift */,
+			);
+			path = Loans;
+			sourceTree = "<group>";
+		};
+		7A3D60AC260243E300FF1DEB /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7A3D60C12602446300FF1DEB /* Login */,
+				7A3D60C32602446F00FF1DEB /* Register */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		7A3D60C12602446300FF1DEB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7A3D60AD2602440000FF1DEB /* LoginModel.swift */,
+				7A3D60B12602441800FF1DEB /* LoginData.swift */,
+				7A3D60B42602442500FF1DEB /* LoginManager.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7A3D60C32602446F00FF1DEB /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				7A3D60B72602443500FF1DEB /* RegisterModel.swift */,
+				7A3D60BA2602443F00FF1DEB /* RegisterData.swift */,
+				7A3D60BD2602444900FF1DEB /* RegisterManager.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		7A46CEC02603AA8B0091F5D1 /* BookCellView */ = {
+			isa = PBXGroup;
+			children = (
+				7A8C5D2825FCFAB800D1FCC7 /* BookCell.swift */,
+				7A8C5D2925FCFAB800D1FCC7 /* BookCell.xib */,
+			);
+			path = BookCellView;
+			sourceTree = "<group>";
+		};
+		7A46CEC22603AA990091F5D1 /* StaffCellView */ = {
+			isa = PBXGroup;
+			children = (
+				7A46CEB12603A1210091F5D1 /* StaffCell.swift */,
+				7A46CEB22603A1210091F5D1 /* StaffCell.xib */,
+			);
+			path = StaffCellView;
+			sourceTree = "<group>";
+		};
+		7A46CEC42603AAA20091F5D1 /* CustomerCellView */ = {
+			isa = PBXGroup;
+			children = (
+				7A46CEB62603A5AE0091F5D1 /* CustomerCell.swift */,
+				7A46CEB72603A5AE0091F5D1 /* CustomerCell.xib */,
+			);
+			path = CustomerCellView;
+			sourceTree = "<group>";
+		};
+		7A46CEC62603AAB40091F5D1 /* LoanCellView */ = {
+			isa = PBXGroup;
+			children = (
+				7A46CEBB2603A6960091F5D1 /* LoanCell.swift */,
+				7A46CEBC2603A6960091F5D1 /* LoanCell.xib */,
+			);
+			path = LoanCellView;
+			sourceTree = "<group>";
+		};
+		7A46CEC82603AB570091F5D1 /* ListControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A8C5D1825FCEC9000D1FCC7 /* BooksListTableViewController.swift */,
+				7A46CEA42603739A0091F5D1 /* StaffListTableViewController.swift */,
+				7A46CEA7260373A70091F5D1 /* CustomersListTableViewController.swift */,
+				7A46CEAA260373B10091F5D1 /* LoansListTableViewController.swift */,
+			);
+			path = ListControllers;
+			sourceTree = "<group>";
+		};
 		7A7AF8A525FBCEE200F50929 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +252,58 @@
 		7A7AF8B025FBCEE200F50929 /* LibraryManager */ = {
 			isa = PBXGroup;
 			children = (
+				7A8C5D1E25FCF4E800D1FCC7 /* Models */,
+				7A7AF8C725FBF2CF00F50929 /* Views */,
+				7A7AF8C625FBF2C400F50929 /* Controllers */,
 				7A7AF8B125FBCEE200F50929 /* AppDelegate.swift */,
 				7A7AF8B325FBCEE200F50929 /* SceneDelegate.swift */,
-				7A7AF8B525FBCEE200F50929 /* ViewController.swift */,
-				7A7AF8B725FBCEE200F50929 /* Main.storyboard */,
 				7A7AF8BA25FBCEE300F50929 /* Assets.xcassets */,
 				7A7AF8BC25FBCEE300F50929 /* LaunchScreen.storyboard */,
 				7A7AF8BF25FBCEE300F50929 /* Info.plist */,
+				7A8C5D1B25FCF31700D1FCC7 /* Constants.swift */,
 			);
 			path = LibraryManager;
+			sourceTree = "<group>";
+		};
+		7A7AF8C625FBF2C400F50929 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A7AF8B525FBCEE200F50929 /* ViewController.swift */,
+				7A7AF8C825FBF36800F50929 /* MainViewController.swift */,
+				7A46CEC82603AB570091F5D1 /* ListControllers */,
+				7A47297225FE24A80014D06F /* BookDetailsViewController.swift */,
+				7A6CE4FC2604F12C0033559D /* LoanDetailsViewController.swift */,
+				7A6CE4FF2604F1C60033559D /* PersonDetailsViewController.swift */,
+				7A6CE50326068C9A0033559D /* SaveBookViewController.swift */,
+				7A6CE5072608AA100033559D /* SavePersonViewController.swift */,
+				7A6CE50A260A15FB0033559D /* SaveLoanViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7A7AF8C725FBF2CF00F50929 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A7AF8B725FBCEE200F50929 /* Main.storyboard */,
+				7A46CEC02603AA8B0091F5D1 /* BookCellView */,
+				7A46CEC22603AA990091F5D1 /* StaffCellView */,
+				7A46CEC42603AAA20091F5D1 /* CustomerCellView */,
+				7A46CEC62603AAB40091F5D1 /* LoanCellView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A8C5D1E25FCF4E800D1FCC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A3D60AC260243E300FF1DEB /* Authentication */,
+				7A3D60912602430700FF1DEB /* Customers */,
+				7A3D608F260242F500FF1DEB /* Books */,
+				7A3D608D260242E400FF1DEB /* Staff */,
+				7A3D60922602431200FF1DEB /* Loans */,
+				7A638A6926010AB10019888E /* LibraryManager.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +322,9 @@
 			dependencies = (
 			);
 			name = LibraryManager;
+			packageProductDependencies = (
+				7A47296F25FE1A560014D06F /* SwipeCellKit */,
+			);
 			productName = LibraryManager;
 			productReference = 7A7AF8AE25FBCEE200F50929 /* LibraryManager.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +352,9 @@
 				Base,
 			);
 			mainGroup = 7A7AF8A525FBCEE200F50929;
+			packageReferences = (
+				7A47296E25FE1A560014D06F /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+			);
 			productRefGroup = 7A7AF8AF25FBCEE200F50929 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -124,9 +369,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A8C5D2B25FCFAB800D1FCC7 /* BookCell.xib in Resources */,
 				7A7AF8BE25FBCEE300F50929 /* LaunchScreen.storyboard in Resources */,
 				7A7AF8BB25FBCEE300F50929 /* Assets.xcassets in Resources */,
+				7A46CEB42603A1210091F5D1 /* StaffCell.xib in Resources */,
 				7A7AF8B925FBCEE200F50929 /* Main.storyboard in Resources */,
+				7A46CEB92603A5AE0091F5D1 /* CustomerCell.xib in Resources */,
+				7A46CEBE2603A6960091F5D1 /* LoanCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +386,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A46CEA52603739A0091F5D1 /* StaffListTableViewController.swift in Sources */,
+				7A8C5D2A25FCFAB800D1FCC7 /* BookCell.swift in Sources */,
+				7A3D60A7260243C200FF1DEB /* LoanData.swift in Sources */,
+				7A46CEAB260373B10091F5D1 /* LoansListTableViewController.swift in Sources */,
+				7A3D609B2602438E00FF1DEB /* CustomerModel.swift in Sources */,
+				7A3D60AE2602440000FF1DEB /* LoginModel.swift in Sources */,
+				7A8C5D2025FCF50800D1FCC7 /* BookModel.swift in Sources */,
 				7A7AF8B625FBCEE200F50929 /* ViewController.swift in Sources */,
+				7A3D60982602437C00FF1DEB /* BookManager.swift in Sources */,
+				7A46CEBD2603A6960091F5D1 /* LoanCell.swift in Sources */,
+				7A3D60A1260243A500FF1DEB /* CustomerManager.swift in Sources */,
+				7A3D609E2602439700FF1DEB /* CustomerData.swift in Sources */,
 				7A7AF8B225FBCEE200F50929 /* AppDelegate.swift in Sources */,
+				7A6CE50B260A15FB0033559D /* SaveLoanViewController.swift in Sources */,
+				7A3D608826022A5B00FF1DEB /* StaffManager.swift in Sources */,
 				7A7AF8B425FBCEE200F50929 /* SceneDelegate.swift in Sources */,
+				7A3D608B26022C1000FF1DEB /* BookData.swift in Sources */,
+				7A46CEB32603A1210091F5D1 /* StaffCell.swift in Sources */,
+				7A638A6A26010AB10019888E /* LibraryManager.swift in Sources */,
+				7A3D60BE2602444900FF1DEB /* RegisterManager.swift in Sources */,
+				7A3D60B22602441800FF1DEB /* LoginData.swift in Sources */,
+				7A6CE5002604F1C60033559D /* PersonDetailsViewController.swift in Sources */,
+				7A8C5D1C25FCF31700D1FCC7 /* Constants.swift in Sources */,
+				7A3D60B82602443500FF1DEB /* RegisterModel.swift in Sources */,
+				7A8C5D1925FCEC9000D1FCC7 /* BooksListTableViewController.swift in Sources */,
+				7A46CEA8260373A70091F5D1 /* CustomersListTableViewController.swift in Sources */,
+				7A3D60B52602442500FF1DEB /* LoginManager.swift in Sources */,
+				7A7AF8C925FBF36800F50929 /* MainViewController.swift in Sources */,
+				7A47297325FE24A80014D06F /* BookDetailsViewController.swift in Sources */,
+				7A6CE4FD2604F12C0033559D /* LoanDetailsViewController.swift in Sources */,
+				7A3D60A4260243B100FF1DEB /* LoanModel.swift in Sources */,
+				7A3D60942602434B00FF1DEB /* StaffModel.swift in Sources */,
+				7A638A6D26011FAE0019888E /* StaffData.swift in Sources */,
+				7A6CE50426068C9A0033559D /* SaveBookViewController.swift in Sources */,
+				7A3D60BB2602443F00FF1DEB /* RegisterData.swift in Sources */,
+				7A3D60AA260243CD00FF1DEB /* LoanManager.swift in Sources */,
+				7A46CEB82603A5AE0091F5D1 /* CustomerCell.swift in Sources */,
+				7A6CE5082608AA100033559D /* SavePersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +625,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7A47296E25FE1A560014D06F /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7A47296F25FE1A560014D06F /* SwipeCellKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A47296E25FE1A560014D06F /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
+			productName = SwipeCellKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7A7AF8A625FBCEE200F50929 /* Project object */;
 }
