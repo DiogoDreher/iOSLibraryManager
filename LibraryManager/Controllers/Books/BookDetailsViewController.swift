@@ -27,6 +27,10 @@ class BookDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if !LoginInfo.loginInstance.isLogeegdIn {
+            navigationController?.popToRootViewController(animated: true)
+        }
+        
         title = selectedOption
         
         image.layer.cornerRadius = 10

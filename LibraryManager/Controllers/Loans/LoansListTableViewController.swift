@@ -22,6 +22,10 @@ class LoansListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if !LoginInfo.loginInstance.isLogeegdIn {
+            navigationController?.popToRootViewController(animated: true)
+        }
+        
         title = selectedOption
         
         manager.delegate = self
@@ -29,10 +33,25 @@ class LoansListTableViewController: UITableViewController {
         
         tableView.register(UINib(nibName: "LoanCell", bundle: nil), forCellReuseIdentifier: "LoanCell")
         
-        manager.fetchAll(sort: "desc", state: true, pageNumber: "1", pageSize: "10")
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControl.Event.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         
     }
-        
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        itemArray = []
+        tableView.reloadData()
+        manager.fetchAll(sort: "desc", state: true, pageNumber: "1", pageSize: "10")
+    }
+    
+    @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        manager.fetchAll(sort: "desc", state: true, pageNumber: "1", pageSize: "10")
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+      }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,6 +126,8 @@ class LoansListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        var actions: [UIContextualAction] = []
+        
         // Archive action
         let details = UIContextualAction(style: .normal,
                                          title: "Details") { [weak self] (action, view, completionHandler) in
@@ -125,16 +146,24 @@ class LoansListTableViewController: UITableViewController {
         }
         returnLoan.backgroundColor = .systemYellow
         
-        // Trash action
-        let delete = UIContextualAction(style: .destructive,
-                                       title: "Delete") { [weak self] (action, view, completionHandler) in
-            self!.id = self!.itemArray[indexPath.row].id
-                                        self?.handleDelete()
-                                        completionHandler(true)
+        if LoginInfo.loginInstance.userRole == "Admin" {
+        
+            // Trash action
+            let delete = UIContextualAction(style: .destructive,
+                                           title: "Delete") { [weak self] (action, view, completionHandler) in
+                self!.id = self!.itemArray[indexPath.row].id
+                                            self?.handleDelete()
+                                            completionHandler(true)
+            }
+            delete.backgroundColor = .systemRed
+            
+            actions.append(delete)
         }
-        delete.backgroundColor = .systemRed
+        
+        actions.append(returnLoan)
+        actions.append(details)
 
-        let configuration = UISwipeActionsConfiguration(actions: [delete, returnLoan, details])
+        let configuration = UISwipeActionsConfiguration(actions: actions)
 
         return configuration
     }

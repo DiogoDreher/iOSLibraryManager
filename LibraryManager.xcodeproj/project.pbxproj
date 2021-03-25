@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A051190260CDD050082B934 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05118F260CDD050082B934 /* LoginInfo.swift */; };
 		7A3D608826022A5B00FF1DEB /* StaffManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D608726022A5B00FF1DEB /* StaffManager.swift */; };
 		7A3D608B26022C1000FF1DEB /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D608A26022C1000FF1DEB /* BookData.swift */; };
 		7A3D60942602434B00FF1DEB /* StaffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D60932602434B00FF1DEB /* StaffModel.swift */; };
@@ -43,7 +44,7 @@
 		7A6CE50B260A15FB0033559D /* SaveLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6CE50A260A15FB0033559D /* SaveLoanViewController.swift */; };
 		7A7AF8B225FBCEE200F50929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AF8B125FBCEE200F50929 /* AppDelegate.swift */; };
 		7A7AF8B425FBCEE200F50929 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AF8B325FBCEE200F50929 /* SceneDelegate.swift */; };
-		7A7AF8B625FBCEE200F50929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AF8B525FBCEE200F50929 /* ViewController.swift */; };
+		7A7AF8B625FBCEE200F50929 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AF8B525FBCEE200F50929 /* LoginViewController.swift */; };
 		7A7AF8B925FBCEE200F50929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AF8B725FBCEE200F50929 /* Main.storyboard */; };
 		7A7AF8BB25FBCEE300F50929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AF8BA25FBCEE300F50929 /* Assets.xcassets */; };
 		7A7AF8BE25FBCEE300F50929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AF8BC25FBCEE300F50929 /* LaunchScreen.storyboard */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A05118F260CDD050082B934 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		7A3D608726022A5B00FF1DEB /* StaffManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffManager.swift; sourceTree = "<group>"; };
 		7A3D608A26022C1000FF1DEB /* BookData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
 		7A3D60932602434B00FF1DEB /* StaffModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffModel.swift; sourceTree = "<group>"; };
@@ -92,7 +94,7 @@
 		7A7AF8AE25FBCEE200F50929 /* LibraryManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibraryManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7AF8B125FBCEE200F50929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A7AF8B325FBCEE200F50929 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7A7AF8B525FBCEE200F50929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A7AF8B525FBCEE200F50929 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7A7AF8B825FBCEE200F50929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A7AF8BA25FBCEE300F50929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A7AF8BD25FBCEE300F50929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A051188260CB1840082B934 /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				7A8C5D1825FCEC9000D1FCC7 /* BooksListTableViewController.swift */,
+				7A47297225FE24A80014D06F /* BookDetailsViewController.swift */,
+				7A6CE50326068C9A0033559D /* SaveBookViewController.swift */,
+			);
+			path = Books;
+			sourceTree = "<group>";
+		};
+		7A05118A260CB1A00082B934 /* Staff & Customers */ = {
+			isa = PBXGroup;
+			children = (
+				7A46CEA42603739A0091F5D1 /* StaffListTableViewController.swift */,
+				7A46CEA7260373A70091F5D1 /* CustomersListTableViewController.swift */,
+				7A6CE4FF2604F1C60033559D /* PersonDetailsViewController.swift */,
+				7A6CE5072608AA100033559D /* SavePersonViewController.swift */,
+			);
+			path = "Staff & Customers";
+			sourceTree = "<group>";
+		};
+		7A05118C260CB1BA0082B934 /* Loans */ = {
+			isa = PBXGroup;
+			children = (
+				7A46CEAA260373B10091F5D1 /* LoansListTableViewController.swift */,
+				7A6CE4FC2604F12C0033559D /* LoanDetailsViewController.swift */,
+				7A6CE50A260A15FB0033559D /* SaveLoanViewController.swift */,
+			);
+			path = Loans;
+			sourceTree = "<group>";
+		};
 		7A3D608D260242E400FF1DEB /* Staff */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +205,7 @@
 				7A3D60AD2602440000FF1DEB /* LoginModel.swift */,
 				7A3D60B12602441800FF1DEB /* LoginData.swift */,
 				7A3D60B42602442500FF1DEB /* LoginManager.swift */,
+				7A05118F260CDD050082B934 /* LoginInfo.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -222,17 +256,6 @@
 			path = LoanCellView;
 			sourceTree = "<group>";
 		};
-		7A46CEC82603AB570091F5D1 /* ListControllers */ = {
-			isa = PBXGroup;
-			children = (
-				7A8C5D1825FCEC9000D1FCC7 /* BooksListTableViewController.swift */,
-				7A46CEA42603739A0091F5D1 /* StaffListTableViewController.swift */,
-				7A46CEA7260373A70091F5D1 /* CustomersListTableViewController.swift */,
-				7A46CEAA260373B10091F5D1 /* LoansListTableViewController.swift */,
-			);
-			path = ListControllers;
-			sourceTree = "<group>";
-		};
 		7A7AF8A525FBCEE200F50929 = {
 			isa = PBXGroup;
 			children = (
@@ -268,15 +291,11 @@
 		7A7AF8C625FBF2C400F50929 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7A7AF8B525FBCEE200F50929 /* ViewController.swift */,
+				7A7AF8B525FBCEE200F50929 /* LoginViewController.swift */,
 				7A7AF8C825FBF36800F50929 /* MainViewController.swift */,
-				7A46CEC82603AB570091F5D1 /* ListControllers */,
-				7A47297225FE24A80014D06F /* BookDetailsViewController.swift */,
-				7A6CE4FC2604F12C0033559D /* LoanDetailsViewController.swift */,
-				7A6CE4FF2604F1C60033559D /* PersonDetailsViewController.swift */,
-				7A6CE50326068C9A0033559D /* SaveBookViewController.swift */,
-				7A6CE5072608AA100033559D /* SavePersonViewController.swift */,
-				7A6CE50A260A15FB0033559D /* SaveLoanViewController.swift */,
+				7A051188260CB1840082B934 /* Books */,
+				7A05118A260CB1A00082B934 /* Staff & Customers */,
+				7A05118C260CB1BA0082B934 /* Loans */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -386,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A051190260CDD050082B934 /* LoginInfo.swift in Sources */,
 				7A46CEA52603739A0091F5D1 /* StaffListTableViewController.swift in Sources */,
 				7A8C5D2A25FCFAB800D1FCC7 /* BookCell.swift in Sources */,
 				7A3D60A7260243C200FF1DEB /* LoanData.swift in Sources */,
@@ -393,7 +413,7 @@
 				7A3D609B2602438E00FF1DEB /* CustomerModel.swift in Sources */,
 				7A3D60AE2602440000FF1DEB /* LoginModel.swift in Sources */,
 				7A8C5D2025FCF50800D1FCC7 /* BookModel.swift in Sources */,
-				7A7AF8B625FBCEE200F50929 /* ViewController.swift in Sources */,
+				7A7AF8B625FBCEE200F50929 /* LoginViewController.swift in Sources */,
 				7A3D60982602437C00FF1DEB /* BookManager.swift in Sources */,
 				7A46CEBD2603A6960091F5D1 /* LoanCell.swift in Sources */,
 				7A3D60A1260243A500FF1DEB /* CustomerManager.swift in Sources */,

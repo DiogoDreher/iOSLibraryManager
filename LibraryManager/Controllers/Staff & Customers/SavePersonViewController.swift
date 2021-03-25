@@ -37,6 +37,10 @@ class SavePersonViewController: UIViewController, UINavigationControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !LoginInfo.loginInstance.isLogeegdIn {
+            navigationController?.popToRootViewController(animated: true)
+        }
 
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary

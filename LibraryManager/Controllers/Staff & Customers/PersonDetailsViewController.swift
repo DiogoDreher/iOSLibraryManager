@@ -27,6 +27,10 @@ class PersonDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if !LoginInfo.loginInstance.isLogeegdIn {
+            navigationController?.popToRootViewController(animated: true)
+        }
+        
         personImage.layer.cornerRadius = 10
 
         if selectedOption == "Staff" {

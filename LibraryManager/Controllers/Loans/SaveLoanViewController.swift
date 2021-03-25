@@ -32,6 +32,9 @@ class SaveLoanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if !LoginInfo.loginInstance.isLogeegdIn {
+            navigationController?.popToRootViewController(animated: true)
+        }
  
         bookManager.delegate = self
         staffManager.delegate = self

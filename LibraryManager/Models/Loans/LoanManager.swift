@@ -79,7 +79,6 @@ class LoanManager: LibraryManager {
     func performPost(urlString: String, loan: LoanModel) {
         let parameters: [String: Any] = ["CustomerId" : "\(loan.customerId)", "StaffId" : "\(loan.staffId)", "BookId" : "\(loan.bookId)",  "LoanDate" : "\(loan.loanDate)"]
         
-        print(parameters)
         let postData = try? JSONSerialization.data(withJSONObject: parameters)
 
         var request = URLRequest(url: URL(string: urlString)!,timeoutInterval: Double.infinity)
@@ -97,7 +96,6 @@ class LoanManager: LibraryManager {
             }
             
             if let safeResponse = response as? HTTPURLResponse {
-                print(safeResponse.statusCode)
                 self.delegate?.didCreateLoan(self, status: safeResponse.statusCode)
             }
         }

@@ -24,6 +24,10 @@ class LoanDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if !LoginInfo.loginInstance.isLogeegdIn {
+            navigationController?.popToRootViewController(animated: true)
+        }
+        
         bookImage.layer.cornerRadius = 10
 
         manager.delegate = self

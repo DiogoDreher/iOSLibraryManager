@@ -9,6 +9,7 @@ import UIKit
 
 class StaffListTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var addStaff: UIBarButtonItem!
     
     var id = ""
 
@@ -22,6 +23,15 @@ class StaffListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if !LoginInfo.loginInstance.isLogeegdIn {
+            navigationController?.popToRootViewController(animated: true)
+        }
+        else{
+            if LoginInfo.loginInstance.userRole != "Admin" {
+                self.navigationItem.rightBarButtonItem = nil
+            }
+        }
+        
         title = selectedOption
         
         manager.delegate = self
@@ -30,11 +40,24 @@ class StaffListTableViewController: UITableViewController {
         
         tableView.register(UINib(nibName: K.staffCell, bundle: nil), forCellReuseIdentifier: K.staffCell)
         
-        manager.fetchAll(sort: "desc", pageNumber: "1", pageSize: "10")
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControl.Event.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        itemArray = []
+        tableView.reloadData()
+        manager.fetchAll(sort: "desc", pageNumber: "1", pageSize: "10")
+    }
+    
+    @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        manager.fetchAll(sort: "desc", pageNumber: "1", pageSize: "10")
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+      }
     
     // MARK: - Table view data source
 
@@ -129,6 +152,9 @@ class StaffListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        var actions: [UIContextualAction] = []
+        
         // Archive action
         let details = UIContextualAction(style: .normal,
                                          title: "Details") { [weak self] (action, view, completionHandler) in
@@ -137,26 +163,35 @@ class StaffListTableViewController: UITableViewController {
                                             completionHandler(true)
         }
         details.backgroundColor = .systemGray
-
-        // Unread action
-        let edit = UIContextualAction(style: .normal,
-                                       title: "Edit") { [weak self] (action, view, completionHandler) in
-            self!.id = self!.itemArray[indexPath.row].id
-                                        self?.handleEdit()
-                                        completionHandler(true)
-        }
-        edit.backgroundColor = .systemYellow
         
-        // Trash action
-        let delete = UIContextualAction(style: .destructive,
-                                       title: "Delete") { [weak self] (action, view, completionHandler) in
-            self!.id = self!.itemArray[indexPath.row].id
-                                        self?.handleDelete()
-                                        completionHandler(true)
-        }
-        delete.backgroundColor = .systemRed
+        if LoginInfo.loginInstance.userRole == "Admin" {
+            
 
-        let configuration = UISwipeActionsConfiguration(actions: [delete, edit, details])
+            // Unread action
+            let edit = UIContextualAction(style: .normal,
+                                           title: "Edit") { [weak self] (action, view, completionHandler) in
+                self!.id = self!.itemArray[indexPath.row].id
+                                            self?.handleEdit()
+                                            completionHandler(true)
+            }
+            edit.backgroundColor = .systemYellow
+            
+            // Trash action
+            let delete = UIContextualAction(style: .destructive,
+                                           title: "Delete") { [weak self] (action, view, completionHandler) in
+                self!.id = self!.itemArray[indexPath.row].id
+                                            self?.handleDelete()
+                                            completionHandler(true)
+            }
+            delete.backgroundColor = .systemRed
+            
+            actions.append(delete)
+            actions.append(edit)
+        }
+        
+        actions.append(details)
+        
+        let configuration = UISwipeActionsConfiguration(actions: actions)
 
         return configuration
     }

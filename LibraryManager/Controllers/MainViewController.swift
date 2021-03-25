@@ -13,6 +13,10 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !LoginInfo.loginInstance.isLogeegdIn {
+            navigationController?.popToRootViewController(animated: true)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -66,6 +70,13 @@ class MainViewController: UIViewController {
     
     
     @IBAction func logoutPressed(_ sender: UIButton) {
+        LoginInfo.loginInstance.isLogeegdIn = false
+        LoginInfo.loginInstance.userId = ""
+        LoginInfo.loginInstance.userName = ""
+        LoginInfo.loginInstance.userToken = ""
+        LoginInfo.loginInstance.userRole = ""
+        
+        navigationController?.popToRootViewController(animated: true)
     }
     
     /*

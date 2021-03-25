@@ -7,12 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     var eyeClick = true
+    
+    let loginManager = LoginManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,7 @@ class ViewController: UIViewController {
         passwordField.isSecureTextEntry = eyeClick
         // Do any additional setup after loading the view.
         
+        loginManager.delegate = self
         
     }
     
@@ -46,11 +49,30 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
-        if eyeClick {
-            performSegue(withIdentifier: "LoginToMain", sender: self)
-        } else {
-            print("nope")
+        //performSegue(withIdentifier: "LoginToMain", sender: self)
+        if let email = emailField.text, let password = passwordField.text {
+            loginManager.login(email: email, password: password)
         }
+        
+        
+    }
+}
+
+extension LoginViewController : LoginManagerDelegate {
+    func didPerformLogin(_ loginManager: LoginManager, statusCode: Int, loginData: LoginModel) {
+        DispatchQueue.main.async {
+            LoginInfo.loginInstance.isLogeegdIn = true
+            LoginInfo.loginInstance.userId = loginData.Id
+            LoginInfo.loginInstance.userName = loginData.Name
+            LoginInfo.loginInstance.userToken = loginData.Token
+            LoginInfo.loginInstance.userRole = loginData.Role
+            
+            self.performSegue(withIdentifier: "LoginToMain", sender: self)
+        }
+    }
+    
+    func didFailWithError(_ error: Error) {
+        print(error)
     }
 }
 

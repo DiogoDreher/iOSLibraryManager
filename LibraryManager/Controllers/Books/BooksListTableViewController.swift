@@ -1,37 +1,54 @@
 //
-//  CustomersListTableViewController.swift
+//  BooksListTableViewController.swift
 //  LibraryManager
 //
-//  Created by Diogo Oliveira on 18/03/2021.
+//  Created by Diogo Oliveira on 13/03/2021.
 //
 
 import UIKit
 
-class CustomersListTableViewController: UITableViewController {
+
+class BooksListTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var id = ""
-
+    
     var selectedOption: String = ""
     
-    var manager = CustomerManager()
+    var manager = BookManager()
     
-    var itemArray: [CustomerModel] = []
-    
-    
+    var itemArray: [BookModel] = []
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !LoginInfo.loginInstance.isLogeegdIn {
+            navigationController?.popToRootViewController(animated: true)
+        }
         
         title = selectedOption
         
         manager.delegate = self
-        searchBar.delegate = self
         
-        tableView.register(UINib(nibName: K.customerCell, bundle: nil), forCellReuseIdentifier: K.customerCell)
+        tableView.register(UINib(nibName: K.booksCell, bundle: nil), forCellReuseIdentifier: K.booksCell)
         
-        manager.fetchAll(sort: "desc", pageNumber: "1", pageSize: "10")
-        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControl.Event.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        itemArray = []
+        tableView.reloadData()
+        manager.fetchAll(sort: "desc", pageNumber: "1", pageSize: "10")
+    }
+    
+    @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        manager.fetchAll(sort: "desc", pageNumber: "1", pageSize: "10")
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+      }
+    
         
     // MARK: - Table view data source
 
@@ -41,10 +58,10 @@ class CustomersListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.customerCell, for: indexPath) as! CustomerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.booksCell, for: indexPath) as! BookCell
         
-        cell.customerName.text = itemArray[indexPath.row].name
-        cell.customerPhone.text = itemArray[indexPath.row].phone
+        cell.bookName.text = itemArray[indexPath.row].name
+        cell.bookYear.text = "\(itemArray[indexPath.row].year)"
         
         let completeUrlString = K.photoUrl + itemArray[indexPath.row].completeImgUrl
         
@@ -54,7 +71,7 @@ class CustomersListTableViewController: UITableViewController {
                     guard let data = data, error == nil else { return }
                     
                     DispatchQueue.main.async { /// execute on main thread
-                        cell.customerImage.image = UIImage(data: data)
+                        cell.bookImage.image = UIImage(data: data)
                     }
                 }
                 
@@ -62,53 +79,54 @@ class CustomersListTableViewController: UITableViewController {
             }
         }
                
-        //cell.bookImage.image = UIImage(named: bookArray[indexPath.row].image)
         
-        if !itemArray[indexPath.row].isActive {
-            cell.accessoryType = .none
-        }
+//        if !itemArray[indexPath.row].isActive {
+//            cell.accessoryType = .none
+//            cell.backgroundColor = .systemRed
+//        }
         
         
         return cell
     }
     
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "CustomerToAdd", sender: self)
+        performSegue(withIdentifier: "BooksToAdd", sender: self)
     }
     
 
     private func handleEdit() {
-        performSegue(withIdentifier: "CustomerToAdd", sender: self)
+        performSegue(withIdentifier: "BooksToAdd", sender: self)
     }
 
     private func handleDelete() {
-        let alert = UIAlertController(title: "Delete Customer", message: "Are you sure you want to delete this customer?", preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: "Delete Book", message: "Are you sure you want to delete this book from the catalogue?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default) { (action) in
-            self.manager.deleteCustomer(id: self.id)
+            self.manager.deleteBook(id: self.id)
         })
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
+        
     }
 
     private func handleDetails() {
-        performSegue(withIdentifier: K.customersToDetails, sender: self)
+        performSegue(withIdentifier: K.booksToDetails, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.customersToDetails {
-            let customerDetailVC = segue.destination as! PersonDetailsViewController
-            customerDetailVC.selectedOption = selectedOption
-            customerDetailVC.id = id
+        if segue.identifier == K.booksToDetails {
+            let bookDetailVC = segue.destination as! BookDetailsViewController
+            bookDetailVC.selectedOption = selectedOption
+            bookDetailVC.id = id
             id = ""
         }
         
-        if segue.identifier == "CustomerToAdd" {
-            let updateCustomer = segue.destination as! SavePersonViewController
-            updateCustomer.isStaff = false
+        if segue.identifier == "BooksToAdd" {
             if id != "" {
-                updateCustomer.id = id
+                let updateBookVC = segue.destination as! SaveBookViewController
+                updateBookVC.id =  id
                 id = ""
             }
         }
@@ -164,10 +182,11 @@ class CustomersListTableViewController: UITableViewController {
 
 
 //MARK: - UISearchBar Delegate
-extension CustomersListTableViewController : UISearchBarDelegate {
+extension BooksListTableViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //Perform request using the text and reload the list with the returned items
+        print(searchBar.text!)
         manager.fetchSearch(name: searchBar.text!)
         DispatchQueue.main.async {
             searchBar.resignFirstResponder()
@@ -177,7 +196,7 @@ extension CustomersListTableViewController : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
-            
+            //perform the ALL endpoit and update the tableview
             manager.fetchAll(sort: "desc", pageNumber: "1", pageSize: "10")
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
@@ -191,7 +210,7 @@ extension CustomersListTableViewController : UISearchBarDelegate {
 }
 
 //MARK: - URLSessionDelegate
-extension CustomersListTableViewController: URLSessionDelegate {
+extension BooksListTableViewController: URLSessionDelegate {
     public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
            //Trust the certificate even if not valid
            let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
@@ -202,24 +221,23 @@ extension CustomersListTableViewController: URLSessionDelegate {
 
 //MARK: - ManagerDelegates
 
-extension CustomersListTableViewController : CustomerManagerDelegate {
-    func didCreateCustomer(_ customerManager: CustomerManager, status: Int) {
-        
-    }
-    
-    func didDeleteCustomer(_ customerManager: CustomerManager, status: Int) {
+extension BooksListTableViewController : BookManagerDelegate {
+    func didDeleteBook(_ bookManager: BookManager, status: Int) {
         DispatchQueue.main.async {
             if status == 200 {
                 self.id = ""
                 self.manager.fetchAll(sort: "desc", pageNumber: "1", pageSize: "10")
-                self.tableView.reloadData()
             }
         }
     }
     
-    func didUpdateCustomer(_ customerManager: CustomerManager, customer: [CustomerModel]) {
+    func didCreateBook(_ bookManager: BookManager, status: Int) {
+        
+    }
+    
+    func didUpdateBook(_ bookManager: BookManager, book: [BookModel]) {
         DispatchQueue.main.async {
-            self.itemArray = customer
+            self.itemArray = book
             self.tableView.reloadData()
         }
     }
@@ -228,4 +246,11 @@ extension CustomersListTableViewController : CustomerManagerDelegate {
         print(error)
     }
     
+    
 }
+
+
+
+
+
+
