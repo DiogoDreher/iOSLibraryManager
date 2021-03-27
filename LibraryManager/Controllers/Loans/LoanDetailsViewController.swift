@@ -89,7 +89,7 @@ extension LoanDetailsViewController: URLSessionDelegate {
 //MARK: - ManagerDelegate
 
 extension LoanDetailsViewController : LoanManagerDelegate {
-    func didCreateLoan(_ loanManager: LoanManager, status: Int) {
+    func didCreateLoan(_ loanManager: LoanManager, status: Int, message: String) {
         
     }
     

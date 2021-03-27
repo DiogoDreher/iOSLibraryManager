@@ -210,9 +210,10 @@ extension LoansListTableViewController: URLSessionDelegate {
 //MARK: - ManagerDelegates
 
 extension LoansListTableViewController : LoanManagerDelegate {
-    func didCreateLoan(_ loanManager: LoanManager, status: Int) {
+    func didCreateLoan(_ loanManager: LoanManager, status: Int, message: String) {
         
     }
+    
     
     func didReturnLoan(_ loanManager: LoanManager, status: Int) {
         

@@ -150,6 +150,14 @@
 			path = Loans;
 			sourceTree = "<group>";
 		};
+		7A051192260D05210082B934 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7A7AF8B525FBCEE200F50929 /* LoginViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		7A3D608D260242E400FF1DEB /* Staff */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,8 +299,8 @@
 		7A7AF8C625FBF2C400F50929 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7A7AF8B525FBCEE200F50929 /* LoginViewController.swift */,
 				7A7AF8C825FBF36800F50929 /* MainViewController.swift */,
+				7A051192260D05210082B934 /* Authentication */,
 				7A051188260CB1840082B934 /* Books */,
 				7A05118A260CB1A00082B934 /* Staff & Customers */,
 				7A05118C260CB1BA0082B934 /* Loans */,

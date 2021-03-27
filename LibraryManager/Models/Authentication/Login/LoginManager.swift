@@ -9,6 +9,7 @@ import UIKit
 
 protocol LoginManagerDelegate {
     func didPerformLogin(_ loginManager: LoginManager, statusCode: Int, loginData: LoginModel)
+    func didFailLogin(_ loginManager: LoginManager, statusCode: Int, message: String)
     func didFailWithError(_ error: Error)
 }
 
@@ -45,10 +46,17 @@ class LoginManager: LibraryManager {
             }
             
             if let safeResponse = response as? HTTPURLResponse {
-                if let safeData = data {
-                    if let loginData = self.parseJSON(safeData) {
-                        self.delegate?.didPerformLogin(self, statusCode: safeResponse.statusCode, loginData: loginData)
+                if safeResponse.statusCode == 200 {
+                    if let safeData = data {
+                        if let loginData = self.parseJSON(safeData) {
+                            self.delegate?.didPerformLogin(self, statusCode: safeResponse.statusCode, loginData: loginData)
+                        }
                     }
+                }
+                else
+                {
+                    let message = String(data: data!, encoding: String.Encoding.utf8)!
+                    self.delegate?.didFailLogin(self, statusCode: safeResponse.statusCode, message: message)
                 }
             }
         }

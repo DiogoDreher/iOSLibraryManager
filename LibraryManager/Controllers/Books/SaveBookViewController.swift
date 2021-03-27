@@ -118,9 +118,10 @@ extension SaveBookViewController: URLSessionDelegate {
 //MARK: - Book Manager Delegate
 
 extension SaveBookViewController : BookManagerDelegate {
-    func didDeleteBook(_ bookManager: BookManager, status: Int) {
+    func didDeleteBook(_ bookManager: BookManager, status: Int, message: String) {
         
     }
+    
     
     func didCreateBook(_ bookManager: BookManager, status: Int) {
         

@@ -9,7 +9,7 @@ import Foundation
 
 protocol LoanManagerDelegate {
     func didUpdateLoan(_ loanManager: LoanManager, loan: [LoanModel])
-    func didCreateLoan(_ loanManager: LoanManager, status: Int)
+    func didCreateLoan(_ loanManager: LoanManager, status: Int, message: String)
     func didReturnLoan(_ loanManager: LoanManager, status: Int)
     func didDeleteLoan(_ loanManager: LoanManager, status: Int)
     func didFailWithError(_ error: Error)
@@ -96,7 +96,14 @@ class LoanManager: LibraryManager {
             }
             
             if let safeResponse = response as? HTTPURLResponse {
-                self.delegate?.didCreateLoan(self, status: safeResponse.statusCode)
+                if safeResponse.statusCode == 201 || safeResponse.statusCode == 200 {
+                    self.delegate?.didCreateLoan(self, status: safeResponse.statusCode, message: "")
+                }
+                else {
+                    let message = String(data: data!, encoding: String.Encoding.utf8)!
+                    self.delegate?.didCreateLoan(self, status: safeResponse.statusCode, message: message)
+                }
+                
             }
         }
 

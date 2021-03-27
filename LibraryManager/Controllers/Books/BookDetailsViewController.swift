@@ -88,7 +88,7 @@ extension BookDetailsViewController: URLSessionDelegate {
 
 
 extension BookDetailsViewController : BookManagerDelegate {
-    func didDeleteBook(_ bookManager: BookManager, status: Int) {
+    func didDeleteBook(_ bookManager: BookManager, status: Int, message: String) {
         
     }
     

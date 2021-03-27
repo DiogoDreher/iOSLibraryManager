@@ -222,11 +222,25 @@ extension BooksListTableViewController: URLSessionDelegate {
 //MARK: - ManagerDelegates
 
 extension BooksListTableViewController : BookManagerDelegate {
-    func didDeleteBook(_ bookManager: BookManager, status: Int) {
+    func didDeleteBook(_ bookManager: BookManager, status: Int, message: String) {
         DispatchQueue.main.async {
+            self.id = ""
             if status == 200 {
-                self.id = ""
+                let alert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+                
                 self.manager.fetchAll(sort: "desc", pageNumber: "1", pageSize: "10")
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

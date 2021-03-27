@@ -59,15 +59,24 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController : LoginManagerDelegate {
+    func didFailLogin(_ loginManager: LoginManager, statusCode: Int, message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Invalid Credentials", message: message, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     func didPerformLogin(_ loginManager: LoginManager, statusCode: Int, loginData: LoginModel) {
         DispatchQueue.main.async {
-            LoginInfo.loginInstance.isLogeegdIn = true
-            LoginInfo.loginInstance.userId = loginData.Id
-            LoginInfo.loginInstance.userName = loginData.Name
-            LoginInfo.loginInstance.userToken = loginData.Token
-            LoginInfo.loginInstance.userRole = loginData.Role
-            
-            self.performSegue(withIdentifier: "LoginToMain", sender: self)
+                LoginInfo.loginInstance.isLogeegdIn = true
+                LoginInfo.loginInstance.userId = loginData.Id
+                LoginInfo.loginInstance.userName = loginData.Name
+                LoginInfo.loginInstance.userToken = loginData.Token
+                LoginInfo.loginInstance.userRole = loginData.Role
+                
+                self.performSegue(withIdentifier: "LoginToMain", sender: self)
         }
     }
     

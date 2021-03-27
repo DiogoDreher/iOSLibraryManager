@@ -10,7 +10,7 @@ import UIKit
 protocol BookManagerDelegate {
     func didUpdateBook(_ bookManager: BookManager, book: [BookModel])
     func didCreateBook(_ bookManager: BookManager, status: Int)
-    func didDeleteBook(_ bookManager: BookManager, status: Int)
+    func didDeleteBook(_ bookManager: BookManager, status: Int, message: String)
     func didFailWithError(_ error: Error)
 }
 
@@ -202,7 +202,17 @@ class BookManager: LibraryManager {
                 }
                 
                 if let safeResponse = response as? HTTPURLResponse {
-                    self.delegate?.didDeleteBook(self, status: safeResponse.statusCode)
+                    if let safeData = data {
+                        let message = String(data: safeData, encoding: String.Encoding.utf8)!
+                        if safeResponse.statusCode == 200 {
+                            self.delegate?.didDeleteBook(self, status: safeResponse.statusCode, message: message)
+                        }
+                        else{
+                            self.delegate?.didDeleteBook(self, status: safeResponse.statusCode, message: message)
+                        }
+                        
+                    }
+                    
                 }
             }.resume()
         }

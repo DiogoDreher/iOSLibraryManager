@@ -65,7 +65,15 @@ class SaveLoanViewController: UIViewController {
         {
             addLoanStack.removeFromSuperview()
         }
+           
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let signedStaff = staffArray.firstIndex(where: {$0.id.hasPrefix(LoginInfo.loginInstance.userId)}) {
+            loanStaff.selectRow(signedStaff, inComponent: 0, animated: true)
+        }
     }
     
 
@@ -95,6 +103,10 @@ class SaveLoanViewController: UIViewController {
 //MARK: - Manager Delegates
 
 extension SaveLoanViewController : BookManagerDelegate {
+    func didDeleteBook(_ bookManager: BookManager, status: Int, message: String) {
+        
+    }
+    
     func didUpdateBook(_ bookManager: BookManager, book: [BookModel]) {
         DispatchQueue.main.async {
             self.bookArray = book
@@ -106,9 +118,6 @@ extension SaveLoanViewController : BookManagerDelegate {
         
     }
     
-    func didDeleteBook(_ bookManager: BookManager, status: Int) {
-        
-    }
     
     func didFailWithError(_ error: Error) {
         
@@ -152,10 +161,18 @@ extension SaveLoanViewController : CustomerManagerDelegate {
 }
 
 extension SaveLoanViewController : LoanManagerDelegate {
-    func didCreateLoan(_ loanManager: LoanManager, status: Int) {
-        if status == 201 || status == 200 {
-            DispatchQueue.main.async {
+    func didCreateLoan(_ loanManager: LoanManager, status: Int, message: String) {
+        DispatchQueue.main.async {
+            if status == 201 || status == 200 {
                 self.navigationController?.popViewController(animated: true)
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
