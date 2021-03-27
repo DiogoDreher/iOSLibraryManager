@@ -49,9 +49,12 @@ class CustomerManager: LibraryManager {
             
             //2. Create a URLSession
             let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            request.setValue("bearer \(LoginInfo.loginInstance.userToken)", forHTTPHeaderField: "Authorization")
             
             //3. Give the session a task
-            let task = session.dataTask(with: url) { (data, response, error) in
+            let task = session.dataTask(with: request) { (data, response, error) in
                 if error != nil {
                     self.delegate?.didFailWithError(error!)
                     return
@@ -90,6 +93,7 @@ class CustomerManager: LibraryManager {
             request.httpMethod = "POST"
             request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
             request.setValue("Powered by Swift!", forHTTPHeaderField: "X-Powered-By")
+            request.setValue("bearer \(LoginInfo.loginInstance.userToken)", forHTTPHeaderField: "Authorization")
             
             let httpBody = NSMutableData()
             httpBody.appendString(convertFormField(named: "Name", value: customer.name, using: boundary))
@@ -138,6 +142,7 @@ class CustomerManager: LibraryManager {
             request.httpMethod = "PUT"
             request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
             request.setValue("Powered by Swift!", forHTTPHeaderField: "X-Powered-By")
+            request.setValue("bearer \(LoginInfo.loginInstance.userToken)", forHTTPHeaderField: "Authorization")
             
             let httpBody = NSMutableData()
             httpBody.appendString(convertFormField(named: "Name", value: customer.name, using: boundary))
@@ -180,6 +185,7 @@ class CustomerManager: LibraryManager {
             
             var request = URLRequest(url: url)
             request.httpMethod = "DELETE"
+            request.setValue("bearer \(LoginInfo.loginInstance.userToken)", forHTTPHeaderField: "Authorization")
             
             session.dataTask(with: request) { data, response, error in
                 if error != nil {
